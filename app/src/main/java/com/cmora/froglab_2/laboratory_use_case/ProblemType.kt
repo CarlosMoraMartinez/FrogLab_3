@@ -1,19 +1,25 @@
-package com.cmora.froglab_2.genetics
+package com.cmora.froglab_2.laboratory_use_case
 
 import android.util.Log
+import com.cmora.froglab_2.genetics.*
 import kotlin.random.Random
 
 class ProblemType(val name:String, val description:String,
                   val genome: GenomeModel,
-                  base_haplotype1 :Haplotype,
-                  base_haplotype2 :Haplotype,
+                  base_haplotype1 : Haplotype,
+                  base_haplotype2 : Haplotype,
                   problem_genes:MutableList<Int>,
                   var father_hap1: Haplotype,
-                  var father_hap2:Haplotype,
-                  var mother_hap1:Haplotype,
-                  var mother_hap2:Haplotype,
+                  var father_hap2: Haplotype,
+                  var mother_hap1: Haplotype,
+                  var mother_hap2: Haplotype,
                   gene_groups: MutableList<MutableList<Int>>?=null){
-    val base_genotype = BaseGenotype(base_haplotype1, base_haplotype2, problem_genes, genome)
+    val base_genotype = BaseGenotype(
+        base_haplotype1,
+        base_haplotype2,
+        problem_genes,
+        genome
+    )
     var gene_in_problem = MutableList<Boolean>(genome.num_genes){false}
     var num_groups = 1
     var gene_groups: MutableList<MutableList<Int>>? = null//(1){problem_genes}
@@ -27,7 +33,7 @@ class ProblemType(val name:String, val description:String,
         }
         Log.d("PROBLEM_TYPE", "init: end")
     }
-    fun getProblemInstance():ProblemInstance{
+    fun getProblemInstance(): ProblemInstance {
         Log.d("PROBLEM_TYPE", "Getting problem instance")
         if(this.gene_groups != null) {
             Log.d("PROBLEM_TYPE", "Gene Groups Not Null: ${this.gene_groups}")
@@ -36,28 +42,40 @@ class ProblemType(val name:String, val description:String,
         Log.d("PROBLEM_TYPE", "Gene Groups Null")
         return this.getProblemInstance_single()
     }
-    fun getProblemInstance_single():ProblemInstance{
+    fun getProblemInstance_single(): ProblemInstance {
         Log.d("PROBLEM_TYPE", "single 1")
         val problem_gene_ind = Random.nextInt(0, this.base_genotype.editable_genes.size)
         val problem_gene = this.base_genotype.editable_genes[problem_gene_ind]
         Log.d("PROBLEM_TYPE", "gene:$problem_gene, gene_ind:$problem_gene_ind, ed_genes_${this.base_genotype.editable_genes}")
-        val newBaseGenotype= BaseGenotype(this.base_genotype, problem_gene)
+        val newBaseGenotype= BaseGenotype(
+            this.base_genotype,
+            problem_gene
+        )
         Log.d("PROBLEM_TYPE", "newBaseGenotype: $newBaseGenotype")
-        val female = Individual(0, -1, newBaseGenotype,
-            MutableList(1){mother_hap1[problem_gene_ind]},
-            MutableList(1){mother_hap2[problem_gene_ind]}, Sex.FEMALE)
+        val female = Individual(0,
+            -1,
+            newBaseGenotype,
+            MutableList(1) { mother_hap1[problem_gene_ind] },
+            MutableList(1) { mother_hap2[problem_gene_ind] },
+            Sex.FEMALE
+        )
         Log.d("PROBLEM_TYPE", "female: $female")
-        val male = Individual(1, -1, newBaseGenotype,
-            MutableList(1){father_hap1[problem_gene_ind]},
-            MutableList(1){father_hap2[problem_gene_ind]}, Sex.MALE)
+        val male = Individual(1,
+            -1,
+            newBaseGenotype,
+            MutableList(1) { father_hap1[problem_gene_ind] },
+            MutableList(1) { father_hap2[problem_gene_ind] },
+            Sex.MALE
+        )
         Log.d("PROBLEM_TYPE", "male: $male")
         val family = Family(0, 1, female, male)
         Log.d("PROBLEM_TYPE", "family: $family")
-        val problem = ProblemInstance(family, problem_gene)
+        val problem =
+            ProblemInstance(family, problem_gene)
         Log.d("PROBLEM_TYPE", "returning problem: $problem")
         return problem
     }
-    fun getProblemInstance_groups(groups: MutableList<MutableList<Int>>):ProblemInstance{
+    fun getProblemInstance_groups(groups: MutableList<MutableList<Int>>): ProblemInstance {
         Log.d("PROBLEM_TYPE", "groups start")
         val problem_group = Random.nextInt(0, groups.size)
         Log.d("PROBLEM_TYPE", "groups: $groups")
@@ -75,7 +93,10 @@ class ProblemType(val name:String, val description:String,
             }
         }
         Log.d("PROBLEM_TYPE", "problem_gene_inds: $problem_gene_inds")
-        val newBaseGenotype = BaseGenotype(this.base_genotype, problem_genes)
+        val newBaseGenotype = BaseGenotype(
+            this.base_genotype,
+            problem_genes
+        )
         val hapf1: Haplotype = mutableListOf()
         val hapf2: Haplotype = mutableListOf()
         val hapm1: Haplotype = mutableListOf()
@@ -88,9 +109,23 @@ class ProblemType(val name:String, val description:String,
         }
         Log.d("PROBLEM_TYPE", "hapf: ${hapf1.toString()}, ${hapf2.toString()}, ${hapm1.toString()}, ${hapm2.toString()}")
         Log.d("PROBLEM_TYPE", "newBaseGenotype: $newBaseGenotype")
-        val female = Individual(0, -1, newBaseGenotype, hapf1, hapf2, Sex.FEMALE)
+        val female = Individual(
+            0,
+            -1,
+            newBaseGenotype,
+            hapf1,
+            hapf2,
+            Sex.FEMALE
+        )
         Log.d("PROBLEM_TYPE", "female: $female")
-        val male = Individual(1, -1, newBaseGenotype, hapm1, hapm2, Sex.MALE)
+        val male = Individual(
+            1,
+            -1,
+            newBaseGenotype,
+            hapm1,
+            hapm2,
+            Sex.MALE
+        )
         Log.d("PROBLEM_TYPE", "male: $male")
         val family = Family(0, 1, female, male)
         Log.d("PROBLEM_TYPE", "family: $family")

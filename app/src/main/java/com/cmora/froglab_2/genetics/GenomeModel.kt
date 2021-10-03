@@ -6,7 +6,7 @@ class GenomeModel(val name: String, val sex_determination: SexDeterminationSyste
                     val extra:MutableList<String>) {
     val chromosomes: MutableMap<String, Chromosome> = mutableMapOf<String, Chromosome>()
     val genes: MutableList<Gene> = mutableListOf<Gene>();
-
+    var species_name: String = name
 
     fun addChromosome(chr: Chromosome){
         chromosomes[chr.name] = chr

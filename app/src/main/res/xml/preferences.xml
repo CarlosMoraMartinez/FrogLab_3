@@ -9,6 +9,14 @@
         android:entries="@array/levels"
         android:entryValues="@array/levelOrderValues"
         android:defaultValue="3" />
+    <ListPreference
+        android:key="genome"
+        android:title="@string/prefgenome_title"
+        android:summary="Current: %s"
+        android:inputType="number"
+        android:entries="@array/default_genomes"
+        android:entryValues="@array/default_genomesValues"
+        android:defaultValue="genome1" />
     <CheckBoxPreference
         android:key="cheating"
         android:defaultValue="false"

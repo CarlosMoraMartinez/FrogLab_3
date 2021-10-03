@@ -49,6 +49,7 @@ class GenomeInitializer {
             jsonobj.getInt("ploidy"),
             jsonobj.getString("about"),
             gene_load_order, extra_resources)
+            genome.species_name = jsonobj.getString("species_name")
         Log.d("GENOME", "Genome object initialized")
         for(i in 0 until jsonchroms.length()){
             json_chr = jsonchroms.getJSONObject(i)

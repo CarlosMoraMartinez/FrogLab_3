@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cmora.froglab_2">
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,21 +13,30 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <!--service android:name="com.cmora.froglab_2.services.BlueToothService" android:enabled="true"/-->
+
         <activity android:name="com.cmora.froglab_2.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                <!--category android:name="android.intent.category.LAUNCHER" /-->
             </intent-filter>
         </activity>
-        <activity android:name="com.cmora.froglab_2.Juego"
+        <activity android:name="com.cmora.froglab_2.laboratory_use_case.Juego"
             android:label="Juego"
             android:screenOrientation="portrait"
             android:configChanges="keyboardHidden|orientation"
             android:theme="@style/AppTheme"
             />
         <activity android:name="com.cmora.froglab_2.AboutActivity"
-            android:label="Juego"
+            android:label="About"
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden|orientation"
+            android:theme="@style/AppTheme"
+            />
+        <activity android:name="com.cmora.froglab_2.PointsActivity"
+            android:label="Points"
             android:screenOrientation="portrait"
             android:configChanges="keyboardHidden|orientation"
             android:theme="@style/AppTheme"
@@ -42,7 +55,32 @@
             />
         <activity android:name="com.cmora.froglab_2.PreferencesActivity"
             android:label="Preferences"
-            android:theme="@style/Theme.AppCompat.Light.Dialog"/>
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden|orientation"
+            android:theme="@style/AppTheme"/>
+
+        <activity android:name="com.cmora.froglab_2.bastard.FindTheBastardActivity"
+            android:label="FindTheBastard"
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden|orientation"
+            android:theme="@style/AppTheme"/>
+
+        <activity android:name="com.cmora.froglab_2.punnet.PunnetActivityMain"
+            android:label="PunnetActivityMain"
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden|orientation"
+            android:theme="@style/AppTheme"/>
+        <activity android:name="com.cmora.froglab_2.services.BlueToothActivity"
+            android:label="BlueToothActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden|orientation"
+            android:theme="@style/AppTheme"/>
+        <activity android:name="com.cmora.froglab_2.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

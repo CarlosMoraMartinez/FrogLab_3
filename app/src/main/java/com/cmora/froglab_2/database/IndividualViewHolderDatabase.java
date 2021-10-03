@@ -16,7 +16,7 @@ import com.cmora.froglab_2.adapters.IndividualAdapter;
 public class IndividualViewHolderDatabase extends RecyclerView.ViewHolder{
     public final int CARD_ELEVATION = 8;
     public final int SELECTED_CARD_ELEVATION = 20;
-    public TextView titulo, subtitulo;
+    public TextView titulo, subtitulo, species;
     public ImageView icon;
     public CardView card;
     public int type = IndividualAdapter.TYPE;
@@ -29,7 +29,10 @@ public class IndividualViewHolderDatabase extends RecyclerView.ViewHolder{
         subtitulo = itemView.findViewById(R.id.subtitulo);
         icon = itemView.findViewById(R.id.icono);
         card = (CardView)itemView;
+        species = itemView.findViewById(R.id.species_name);
         card.setCardElevation(CARD_ELEVATION);
+        save_image_button = itemView.findViewById(R.id.image_icon);
+
     }
     public void setTags(){
         Log.d("IndividualViewHolder: ", "setTags from ElementListAdapter, id:" + id);

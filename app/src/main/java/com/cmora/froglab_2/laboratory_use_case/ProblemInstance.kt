@@ -1,6 +1,9 @@
-package com.cmora.froglab_2.genetics
+package com.cmora.froglab_2.laboratory_use_case
 
 import android.util.Log
+import com.cmora.froglab_2.genetics.Family
+import com.cmora.froglab_2.genetics.Individual
+import com.cmora.froglab_2.genetics.Sex
 
 class ProblemInstance(family: Family, val problem_gene: Int=-1) {
     val individuals: MutableList<Individual> = mutableListOf()
@@ -27,9 +30,11 @@ class ProblemInstance(family: Family, val problem_gene: Int=-1) {
         if(individuals[male].family != individuals[female].family)
             return false
         val generation = if(individuals[female].family >= 0)families[individuals[female].family].generation + 1 else 1
-        val newfam = Family(families.size,
+        val newfam = Family(
+            families.size,
             generation,
-            individuals[female], individuals[male])
+            individuals[female], individuals[male]
+        )
         newfam.makeOffspring(individuals.size)
         individuals.addAll(newfam.offspring)
         families.add(newfam)

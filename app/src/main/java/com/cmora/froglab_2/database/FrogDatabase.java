@@ -6,8 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import com.cmora.froglab_2.Juego;
-import com.cmora.froglab_2.R;
+import com.cmora.froglab_2.laboratory_use_case.Juego;
 import com.cmora.froglab_2.genetics.BaseGenotype;
 import com.cmora.froglab_2.genetics.GenomeInitializer;
 import com.cmora.froglab_2.genetics.GenomeModel;
@@ -129,7 +128,7 @@ public class FrogDatabase extends SQLiteOpenHelper {
         byte[] hap2_byte;
         ByteBuffer wrapped;*/
         GenomeModel genome = readGenome(DEFAULT_GENOME);
-        BaseGenotype base_genotype = null;
+        BaseGenotype base_genotype = getBaseGenotype(genome);//null;
         Individual ind;
         long date;
         int id = 0;
@@ -156,6 +155,7 @@ public class FrogDatabase extends SQLiteOpenHelper {
 
             ind = new Individual(id, -2, base_genotype,hap1, hap2, sex_arr[sex_aux]);
             Log.d("DATABASE", "Initialized individual");
+            Log.d("DATABASE", ind.toString());
             ind.setUser_name(ind_name);
             ind.setDate(date);
             Log.d("DATABASE", "Set extra fields to individual");
@@ -174,7 +174,7 @@ public class FrogDatabase extends SQLiteOpenHelper {
         if(context == null){
             Log.d("DATABASE", "Null context");
         }
-        int id = R.raw.genome1;//context.getResources().getIdentifier(genome_name,  "raw", context.getPackageName());
+        int id = context.getResources().getIdentifier(genome_name,  "raw", context.getPackageName());
         InputStream JSONFileInputStream = context.getResources().openRawResource(id);
         GenomeModel genome = GenomeInitializer.Companion.buildGenomeFromJSON(Juego.readTextFile(JSONFileInputStream));
         return genome;

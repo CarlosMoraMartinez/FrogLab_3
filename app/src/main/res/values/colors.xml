@@ -8,4 +8,8 @@
     <color name="colorIndividualCardSelected">#f5b7b1</color>
     <color name="colorFamilyCard">#7fb3d5</color>
     <color name="colorButtons">#d6eaf8</color>
+    <color name="colorPoints">#CC5511</color>
+    <color name="colorWrong">#DD0000</color>
+    <color name="colorRight">#11CC55</color>
+
 </resources>

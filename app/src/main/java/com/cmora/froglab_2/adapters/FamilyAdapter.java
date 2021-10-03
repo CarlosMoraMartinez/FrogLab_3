@@ -104,4 +104,12 @@ public class FamilyAdapter implements ElementAdapter {
     public Family getObject() {
         return this.object;
     }
+    @Override
+    public String getGenomeName(){
+        return this.object.getMale_parent().getGenomeName();
+    }
+    @Override
+    public String getGenomeSpeciesName(){
+        return this.object.getMale_parent().getSpeciesName();
+    }
 }

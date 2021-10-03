@@ -1,0 +1,178 @@
+{
+  "name": "Find the bastard questions of type 1",
+  "genome": "simple_genome_1",
+  "description": "Problems of classical Mendelian inheritance, with one dominant and one recessive allele",
+  "base_haplotype1": [
+    "A",
+    "A",
+    "A",
+    "A",
+    "A",
+    "A",
+    "A",
+    "A",
+    "A",
+    "A"
+  ],
+  "base_haplotype2": [
+    "A",
+    "A",
+    "A",
+    "A",
+    "A",
+    "A",
+    "A",
+    "A",
+    "A",
+    "A"
+  ],
+  "problem_genes": [
+    "gene1",
+    "gene2",
+    "gene3",
+    "gene4",
+    "gene5"
+  ],
+  "haplotype_names": [  "problem_p0_father_haplotype2",
+    "problem_p0_father_haplotype1",
+    "problem_p0_mother_haplotype2",
+    "problem_p0_mother_haplotype1",
+    "problem_f1_father_haplotype2",
+    "problem_f1_father_haplotype1",
+    "problem_f1_mother_haplotype2",
+    "problem_f1_mother_haplotype1",
+    "problem_f2_a_haplotype2",
+    "problem_f2_a_haplotype1",
+    "problem_f2_b_haplotype2",
+    "problem_f2_b_haplotype1",
+    "problem_f2_c_haplotype2",
+    "problem_f2_c_haplotype1",
+    "problem_f2_d_haplotype2",
+    "problem_f2_d_haplotype1"
+  ],
+  "problem_p0_father_haplotype2": [
+    "a",
+    "a",
+    "a",
+    "a",
+    "a"
+  ],
+  "problem_p0_father_haplotype1": [
+    "A",
+    "A",
+    "A",
+    "A",
+    "A"
+  ],
+  "problem_p0_mother_haplotype2": [
+    "a",
+    "a",
+    "a",
+    "a",
+    "a"
+  ],
+  "problem_p0_mother_haplotype1": [
+    "A",
+    "A",
+    "A",
+    "A",
+    "A"
+  ],
+  "problem_f1_father_haplotype2": [
+    "a",
+    "a",
+    "a",
+    "a",
+    "a"
+  ],
+  "problem_f1_father_haplotype1": [
+    "a",
+    "a",
+    "a",
+    "a",
+    "a"
+  ],
+  "problem_f1_mother_haplotype2": [
+    "a",
+    "a",
+    "a",
+    "a",
+    "a"
+  ],
+  "problem_f1_mother_haplotype1": [
+    "a",
+    "a",
+    "a",
+    "a",
+    "a"
+  ],
+  "problem_f2_a_haplotype2": [
+    "a",
+    "a",
+    "a",
+    "a",
+    "a"
+  ],
+  "problem_f2_a_haplotype1": [
+    "A",
+    "A",
+    "A",
+    "A",
+    "A"
+  ],
+  "problem_f2_b_haplotype2": [
+    "A",
+    "A",
+    "A",
+    "A",
+    "A"
+  ],
+  "problem_f2_b_haplotype1": [
+    "a",
+    "a",
+    "a",
+    "a",
+    "a"
+  ],
+  "problem_f2_c_haplotype2": [
+    "A",
+    "A",
+    "A",
+    "A",
+    "A"
+  ],
+  "problem_f2_c_haplotype1": [
+    "a",
+    "a",
+    "a",
+    "a",
+    "a"
+  ],
+  "problem_f2_d_haplotype2": [
+    "A",
+    "A",
+    "A",
+    "A",
+    "A"
+  ],
+  "problem_f2_d_haplotype1": [
+    "a",
+    "a",
+    "a",
+    "a",
+    "a"
+  ],
+  "problem_f2_sex": [
+    "MALE",
+    "MALE",
+    "MALE",
+    "MALE"
+  ],
+  "names": ["P0.1", "P0.2","F1.1", "F1.2", "F2.1", "F2.2", "F2.3", "F2.4"],
+  "answer": 0,
+  "all_correct":0,
+  "none_correct":-1,
+  "no_info": -1,
+  "points_right": 5,
+  "points_wrong": -5
+}

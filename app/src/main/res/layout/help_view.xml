@@ -267,14 +267,45 @@
             android:text="@string/help_string22"
             style="@style/MiCuerpoTexto"
             android:textAppearance="?android:attr/textAppearanceLarge" />
+
             <TextView
                 android:id="@+id/help_textview23"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/help_string23"
+                style="@style/Mistitulos2"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <TextView
+                android:id="@+id/help_textview24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/help_string24"
+                style="@style/MiCuerpoTexto"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+            <TextView
+                android:id="@+id/help_textview25"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/help_string25"
+                style="@style/Mistitulos2"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <TextView
+                android:id="@+id/help_textview26"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/help_string26"
+                style="@style/MiCuerpoTexto"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+            <TextView
+                android:id="@+id/help_textview27"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingTop="32dp"
                 android:paddingBottom="32dp"
                 android:layout_gravity="right"
-                android:text="@string/help_string23"
+                android:text="@string/help_string27"
                 style="@style/Mistitulos1"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
         </LinearLayout>

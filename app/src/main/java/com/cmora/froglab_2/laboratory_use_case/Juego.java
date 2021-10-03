@@ -1,4 +1,4 @@
-package com.cmora.froglab_2;
+package com.cmora.froglab_2.laboratory_use_case;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.cmora.froglab_2.R;
 import com.cmora.froglab_2.adapters.ElementAdapter;
 import com.cmora.froglab_2.adapters.ElementListAdapter;
 import com.cmora.froglab_2.adapters.FamilyAdapter;
@@ -25,9 +26,9 @@ import com.cmora.froglab_2.genetics.Family;
 import com.cmora.froglab_2.genetics.GenomeInitializer;
 import com.cmora.froglab_2.genetics.GenomeModel;
 import com.cmora.froglab_2.genetics.Individual;
-import com.cmora.froglab_2.genetics.ProblemInstance;
-import com.cmora.froglab_2.genetics.ProblemType;
-import com.cmora.froglab_2.genetics.ProblemTypeInitializer;
+import com.cmora.froglab_2.laboratory_use_case.ProblemInstance;
+import com.cmora.froglab_2.laboratory_use_case.ProblemType;
+import com.cmora.froglab_2.laboratory_use_case.ProblemTypeInitializer;
 import com.cmora.froglab_2.genetics.Sex;
 
 import java.io.ByteArrayOutputStream;
@@ -43,6 +44,8 @@ public class Juego extends AppCompatActivity {
     private RecyclerView.LayoutManager layoutManager;
     private ElementListAdapter adaptador;
     private GenomeModel genome;
+    private String db_genome_name;
+    private String DEFAULT_GENOME = "genome1";
     //private List<ProblemType> problems;
     private ProblemType problem_type;
     ProblemInstance prob;
@@ -59,7 +62,6 @@ public class Juego extends AppCompatActivity {
     private final String[] level4_problemtypes = {"problemtypemap"};
     private final String DEFAULT_LEVEL = "3";
     private ArrayList<Integer> db_female_hap1, db_female_hap2, db_male_hap1, db_male_hap2;
-    private String db_genome_name;
     private String current_level;
     SoundPool soundPool;
     int croack_male, croack_female;
@@ -68,7 +70,7 @@ public class Juego extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
         setContentView(R.layout.juego);
-        SharedPreferences sharedPreferences =
+        //SharedPreferences sharedPreferences =
                 PreferenceManager.getDefaultSharedPreferences(this);
 
         /*if (!sharedPreferences.getBoolean(
@@ -76,6 +78,7 @@ public class Juego extends AppCompatActivity {
             // The user hasn't seen the OnboardingSupportFragment yet, so show it
             startActivity(new Intent(this, OnboardingActivity.class));
         }*/
+
 
         soundPool = new SoundPool( 5, AudioManager.STREAM_MUSIC , 0);
         croack_male = soundPool.load(this, R.raw.croack_male, 0);
@@ -86,18 +89,32 @@ public class Juego extends AppCompatActivity {
         Log.d("JUEGO", "Current Level: " + current_level);
 
         if(intent.getBooleanExtra("FROM_DATABASE", false)){
-            Log.d("JUEGO", "Current Level: " + current_level);
+            Log.d("JUEGO", "From database");
             this.db_female_hap1 = stringToHaplotype(intent.getStringExtra("female_hap1"));
             this.db_female_hap2 = stringToHaplotype(intent.getStringExtra("female_hap2"));
             this.db_male_hap1  = stringToHaplotype(intent.getStringExtra("male_hap1"));
             this.db_male_hap2  = stringToHaplotype(intent.getStringExtra("male_hap2"));
             this.db_genome_name = intent.getStringExtra("genome_name");
-            InputStream JSONFileInputStream = getResources().openRawResource(R.raw.genome1);
+            int genome_resource = getResources().getIdentifier(db_genome_name, "raw", getPackageName());
+            Log.d("JUEGO", "Genome name to read: " + db_genome_name);
+            InputStream JSONFileInputStream = getResources().openRawResource(genome_resource); //R.raw.genome1
+            Log.d("JUEGO", "Genome name to read: " + db_genome_name);
             this.genome = GenomeInitializer.Companion.buildGenomeFromJSON(this.readTextFile(JSONFileInputStream));
+            Log.d("JUEGO", "Genome name to read: " + db_genome_name);
             startGameFromDatabase();
         }else {
-            InputStream JSONFileInputStream2 = getResources().openRawResource(R.raw.genome1);
+            db_genome_name = pref.getString("genome", DEFAULT_GENOME);
+            if(db_genome_name == null || db_genome_name == ""){
+                db_genome_name = DEFAULT_GENOME;
+                Log.d("JUEGO", "Genome is null, using default genome");
+            }
+            Log.d("JUEGO", "Genome to load: "+ db_genome_name);
+            int genome_resource2 = getResources().getIdentifier(db_genome_name, "raw", getPackageName());
+            InputStream JSONFileInputStream2 = getResources().openRawResource(genome_resource2); //R.raw.genome1
+            Log.d("JUEGO", "Loading genome "+ db_genome_name);
+            //InputStream JSONFileInputStream2 = getResources().openRawResource(R.raw.genome1);
             this.genome = GenomeInitializer.Companion.buildGenomeFromJSON(this.readTextFile(JSONFileInputStream2));
+            Log.d("JUEGO", "Loaded genome "+ db_genome_name);
             startGame();
         }
     }
@@ -225,7 +242,7 @@ public class Juego extends AppCompatActivity {
                 last = i;
             }
         recyclerView.scrollToPosition(last);
-        Toast.makeText(this, "New Family added: " + f.getName(), Toast.LENGTH_LONG ).show();
+        Toast.makeText(this, "New Family added: " + f.getName(), Toast.LENGTH_SHORT ).show();
 
 
     }
@@ -308,7 +325,7 @@ public class Juego extends AppCompatActivity {
         Log.d("JUEGO", "StartGame 4");
         int id = Random.Default.nextInt(0, this_level_problems.length);
         Log.d("JUEGO", "Current Problem: " + Integer.toString(id));
-        Toast.makeText(this, "Problem selected: " + this_level_problems[id], Toast.LENGTH_LONG );
+        Toast.makeText(this, "Problem selected: " + this_level_problems[id], Toast.LENGTH_SHORT );
         id = getResources().getIdentifier(this_level_problems[id], "raw", getPackageName());
         InputStream JSONFileInputStream = getResources().openRawResource(id);
         problem_type = ProblemTypeInitializer.Companion.buildProblemTypeFromJSON(this.readTextFile(JSONFileInputStream), this.genome);
@@ -334,7 +351,7 @@ public class Juego extends AppCompatActivity {
                         ElementAdapter e = elements.get(position);
                         if(e.getType() == IndividualAdapter.TYPE){
                             //Individual ind = prob.getIndividuals().get(e.getId());
-                            Toast.makeText(view.getContext(), "Selected " + e.getImageFooter(), Toast.LENGTH_LONG).show();
+                            Toast.makeText(view.getContext(), "Selected " + e.getImageFooter(), Toast.LENGTH_SHORT).show();
                             onIndividualSelected(e);
                         }else{
                             if(e.isExpanded()){
@@ -350,7 +367,7 @@ public class Juego extends AppCompatActivity {
                         Log.d("LISTENER", "Juego - onLongItemClick");
                         ElementAdapter e = elements.get(position);
                         Log.d("LISTENER", "Juego - onLongItemClick 2" + e.getImageFooter() );
-                        //Toast.makeText(view.getContext(), "TOUCHED LONG: " + e.getImageFooter() + e.getExtraInfo1(), Toast.LENGTH_LONG).show();
+                        //Toast.makeText(view.getContext(), "TOUCHED LONG: " + e.getImageFooter() + e.getExtraInfo1(), Toast.LENGTH_SHORT).show();
                     }
                 })
         );
@@ -392,7 +409,7 @@ public class Juego extends AppCompatActivity {
                         ElementAdapter e = elements.get(position);
                         if(e.getType() == IndividualAdapter.TYPE){
                             //Individual ind = prob.getIndividuals().get(e.getId());
-                            Toast.makeText(view.getContext(), "Selected " + e.getImageFooter(), Toast.LENGTH_LONG).show();
+                            Toast.makeText(view.getContext(), "Selected " + e.getImageFooter(), Toast.LENGTH_SHORT).show();
                             onIndividualSelected(e);
                         }else{
                             if(e.isExpanded()){
@@ -408,7 +425,7 @@ public class Juego extends AppCompatActivity {
                         Log.d("LISTENER", "Juego - onLongItemClick");
                         ElementAdapter e = elements.get(position);
                         Log.d("LISTENER", "Juego - onLongItemClick 2" + e.getImageFooter() );
-                        //Toast.makeText(view.getContext(), "TOUCHED LONG: " + e.getImageFooter() + e.getExtraInfo1(), Toast.LENGTH_LONG).show();
+                        //Toast.makeText(view.getContext(), "TOUCHED LONG: " + e.getImageFooter() + e.getExtraInfo1(), Toast.LENGTH_SHORT).show();
                     }
                 })
         );

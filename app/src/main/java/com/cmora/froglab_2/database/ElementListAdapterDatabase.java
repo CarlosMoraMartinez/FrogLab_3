@@ -42,6 +42,7 @@ public class ElementListAdapterDatabase extends
             int type = el.getType();
             IndividualViewHolderDatabase vh2 = (IndividualViewHolderDatabase)holder;
             vh2.titulo.setText(context.getString(R.string.individual_database) + " " + el.getImageFooter());
+            vh2.species.setText(el.getGenomeSpeciesName());
             SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this.context);
             if(pref.getBoolean("cheating", false)){
                 vh2.subtitulo.setText(context.getString(R.string.phenotype) + el.getExtraInfo1() + "\n" +

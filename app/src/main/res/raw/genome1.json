@@ -1,5 +1,6 @@
 {
-    "name": "genome_1",
+    "name": "genome1",
+    "species_name": "Oophaga fictium",
     "num_autosomes": 2,
     "num_sex_chromosomes": 2,
     "num_genes": 10,

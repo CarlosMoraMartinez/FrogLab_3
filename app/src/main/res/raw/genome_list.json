@@ -1,0 +1,14 @@
+{
+"genome_list":[
+  {
+    "name": "Oophaga fictium",
+    "resource": "genome1.json",
+    "description": "A tropical frog"
+  },
+  {
+    "name": "Oophaga falsus",
+    "resource": "genome2.json",
+    "description": "A tropical frog"
+  }
+]
+}

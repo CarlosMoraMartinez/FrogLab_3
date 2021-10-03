@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="@color/colorIndividualCard">
+
+    <ImageView
+        android:id="@+id/splash_image"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="150dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/ic_frog_logo4"/>
+
+    <TextView
+        android:id="@+id/splash_text"
+        android:layout_width="wrap_content"
+        android:layout_margin="20dp"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textAppearance="@style/Mistitulos1"
+        android:layout_below="@+id/splash_image"
+        android:layout_centerHorizontal="true"
+        android:text="@string/app_name"
+        android:textSize="30dp"
+        android:textColor="@color/colorPrimaryDark"/>
+    <TextView
+        android:id="@+id/splash_text2"
+        android:layout_margin="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/splash_text"
+        android:layout_centerHorizontal="true"
+        android:text="@string/about"
+        android:textSize="20dp"
+        android:textColor="@color/colorPrimaryDark"/>
+    <TextView
+        android:id="@+id/splash_text3"
+        android:layout_margin="20dp"
+        android:gravity="bottom|start"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/splash_text"
+        android:layout_centerHorizontal="false"
+        android:text="@string/upv"
+        android:textSize="12dp"
+        android:textColor="@color/colorPrimaryDark"/>
+
+</LinearLayout>

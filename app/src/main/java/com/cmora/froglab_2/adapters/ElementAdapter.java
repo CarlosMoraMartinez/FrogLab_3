@@ -17,4 +17,6 @@ public interface ElementAdapter {
     void select();
     void unselect();
     Object getObject();
+    String getGenomeName();
+    String getGenomeSpeciesName();
 }

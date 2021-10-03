@@ -94,6 +94,9 @@ class Individual(
     fun getGenomeName(): String{
         return this.base_genotype.genome.name
     }
+    fun getSpeciesName(): String{
+        return this.base_genotype.genome.species_name
+    }
     fun correctHaplotypesXY(){
 
     }

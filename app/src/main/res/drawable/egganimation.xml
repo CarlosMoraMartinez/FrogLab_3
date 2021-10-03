@@ -1,0 +1,12 @@
+<animation-list
+    xmlns:android= "http://schemas.android.com/apk/res/android"
+    android:oneshot= "false">
+    <item android:drawable="@drawable/egg1"
+        android:duration="200" />
+    <item android:drawable="@drawable/egg1"
+        android:duration="200" />
+</animation-list>
+
+<!--animated-rotate xmlns:android="http://schemas.android.com/apk/res/android"
+android:pivotX="50%" android:pivotY="50%" android:fromDegrees="0"
+android:toDegrees="360" android:drawable="@drawable/egg1" /-->

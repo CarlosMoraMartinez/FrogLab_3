@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="bottom"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <include
+        android:id="@+id/option_a"
+        layout="@layout/bastard_card_question"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        app:layout_constraintBottom_toTopOf="@id/option_b"
+        app:layout_constraintEnd_toStartOf="@id/cross_symbol1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/cross_symbol1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text=" X "
+        android:textColor="#000000"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toTopOf="@id/option_d"
+        app:layout_constraintEnd_toStartOf="@+id/option_c"
+        app:layout_constraintStart_toEndOf="@+id/option_a"
+        app:layout_constraintTop_toTopOf="parent" />
+    <include
+        layout="@layout/bastard_card_question"
+        android:id="@+id/option_b"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/option_a"
+        app:layout_constraintEnd_toStartOf="@id/cross_symbol2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"/>
+    <include
+        layout="@layout/bastard_card_question"
+        android:id="@+id/option_c"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        app:layout_constraintStart_toEndOf="@id/cross_symbol1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/option_d"
+        android:layout_width="0dp"
+        android:layout_height="0dp"/>
+    <TextView
+        android:id="@+id/cross_symbol2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text=" X "
+        android:textColor="#000000"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/option_b"
+        app:layout_constraintStart_toEndOf="@+id/option_d"
+        app:layout_constraintTop_toBottomOf="@+id/option_c" />
+    <include
+        layout="@layout/bastard_card_question"
+        android:id="@+id/option_d"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/option_c"
+        app:layout_constraintStart_toEndOf="@id/cross_symbol2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"/>
+    <View
+        android:id="@+id/divider_question"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="?android:attr/listDivider"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/option_b"
+        app:layout_constraintTop_toBottomOf="@+id/option_a" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -23,8 +23,8 @@ import com.cmora.froglab_2.adapters.IndividualAdapter;
 import com.cmora.froglab_2.adapters.LayerDrawableBuilder;
 import com.cmora.froglab_2.adapters.RecyclerItemClickListener;
 import com.cmora.froglab_2.genetics.Individual;
-import com.cmora.froglab_2.genetics.ProblemInstance;
-import com.cmora.froglab_2.genetics.ProblemType;
+import com.cmora.froglab_2.laboratory_use_case.ProblemInstance;
+import com.cmora.froglab_2.laboratory_use_case.ProblemType;
 import com.cmora.froglab_2.genetics.Sex;
 
 import java.io.ByteArrayOutputStream;
@@ -201,6 +201,7 @@ public class DatabaseActivity extends AppCompatActivity {
         male_obj = this.individuals.get(male_selected);
         Intent resultIntent = new Intent();
         resultIntent.putExtra("genome_name",female_obj.getGenomeName());
+        Log.d("DATABASE_ACTIVITY", female_obj.getGenomeName());
         resultIntent.putExtra("female_hap1", FrogDatabase.haplotypeToString(female_obj.getHaplotype1()));
         resultIntent.putExtra("female_hap2", FrogDatabase.haplotypeToString(female_obj.getHaplotype2()));
         resultIntent.putExtra("male_hap1", FrogDatabase.haplotypeToString(male_obj.getHaplotype1()));

@@ -12,5 +12,12 @@
             <item>2</item>
             <item>3</item>
         </string-array>
-
+    <string-array name="default_genomes">
+        <item>Oophaga fictium</item>
+        <item>Oophaga falsus</item>
+    </string-array>
+    <string-array name="default_genomesValues">
+        <item>genome1</item>
+        <item>genome2</item>
+    </string-array>
 </resources>

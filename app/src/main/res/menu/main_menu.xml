@@ -6,11 +6,26 @@
     <item android:id="@+id/action_settings"
         android:title="@string/options"
         android:icon="@android:drawable/ic_menu_preferences"
+        android:orderInCategory="2"
+        app:showAsAction="ifRoom|withText"/>
+    <item android:id="@+id/how_to_play"
+        android:title="@string/instructions"
+        android:icon="@drawable/ic_question"
         android:orderInCategory="1"
-        app:showAsAction="never"/>
+        app:showAsAction="ifRoom|withText"/>
+    <item android:title="@string/points_label"
+        android:id="@+id/totalpoints"
+        android:icon="@drawable/ic_dnapoints"
+        android:orderInCategory="1"
+        app:showAsAction="ifRoom|withText"/>
     <item android:title="@string/about_label"
         android:id="@+id/acercade"
         android:icon="@drawable/ic_frog_logo5"
         android:orderInCategory="4"
         app:showAsAction="ifRoom|withText"/>
+    <!--item android:title="@string/about_label"
+        android:id="@+id/connect"
+        android:icon="@drawable/ic_frog_logo3"
+        android:orderInCategory="5"
+        app:showAsAction="never"/-->
 </menu>

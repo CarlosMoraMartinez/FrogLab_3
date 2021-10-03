@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout2"
+    style="@style/AppTheme"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="@color/cardview_light_background"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    tools:context=".bastard.FindTheBastardActivity"
+    tools:showIn="@layout/bastard_main_layout">
+    <fragment
+        android:id="@+id/bastard_fragment_header_main"
+        android:name="com.cmora.froglab_2.tools.HeaderFragment"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="0dp" />
+    <fragment
+        android:id="@+id/bastard_fragment_question_main"
+        android:name="com.cmora.froglab_2.bastard.QuestionFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5" />
+    <View style="@style/Divider"
+        android:layout_height="7dp"
+        android:background="@color/colorFamilyCard"/>
+
+    <fragment
+        android:id="@+id/bastard_fragment_options_main"
+        android:name="com.cmora.froglab_2.bastard.OptionsFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/cardview_dark_background"
+        android:layout_weight="6" />
+</LinearLayout>

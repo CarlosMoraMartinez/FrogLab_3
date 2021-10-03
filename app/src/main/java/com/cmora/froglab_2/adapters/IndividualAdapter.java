@@ -78,5 +78,13 @@ public class IndividualAdapter implements ElementAdapter {
     public Individual getObject() {
         return this.object;
     }
+    @Override
+    public String getGenomeName(){
+        return this.object.getGenomeName();
+    }
+    @Override
+    public String getGenomeSpeciesName(){
+        return this.object.getSpeciesName();
+    }
 }
 

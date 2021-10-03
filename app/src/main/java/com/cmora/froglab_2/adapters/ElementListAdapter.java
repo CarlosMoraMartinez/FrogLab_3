@@ -97,6 +97,7 @@ public class ElementListAdapter extends
             case IndividualAdapter.TYPE:
                 IndividualViewHolder vh2 = (IndividualViewHolder)holder;
                 vh2.titulo.setText(context.getString(R.string.individual) + " " + el.getImageFooter());
+                vh2.species.setText(el.getGenomeSpeciesName());
                 SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this.context);
                 if(pref.getBoolean("cheating", false)){
                     vh2.subtitulo.setText(Html.fromHtml("<b>" +

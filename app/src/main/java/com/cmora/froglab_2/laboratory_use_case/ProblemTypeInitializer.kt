@@ -1,6 +1,8 @@
-package com.cmora.froglab_2.genetics
+package com.cmora.froglab_2.laboratory_use_case
 
 import android.util.Log
+import com.cmora.froglab_2.genetics.GenomeModel
+import com.cmora.froglab_2.genetics.Haplotype
 import org.json.JSONArray
 import org.json.JSONObject
 
@@ -21,7 +23,7 @@ import org.json.JSONObject
 
 class ProblemTypeInitializer {
     companion object {
-        fun buildProblemTypeFromJSON(problemtypestr: String, genome: GenomeModel): ProblemType{
+        fun buildProblemTypeFromJSON(problemtypestr: String, genome: GenomeModel): ProblemType {
             Log.d("ProblemTypeInitializer", "1: Building problem type from .json")
             Log.d("ProblemTypeInitializer", problemtypestr)
 
@@ -93,11 +95,11 @@ class ProblemTypeInitializer {
             }
             Log.d("ProblemTypeInitializer", "11: gene_groups:${gene_groups}")
             var problem_type = ProblemType(
-                    name, description, genome,
-                    hap1, hap2, genelist,
-                    fhap1, fhap2, mhap1, mhap2,
-                    gene_groups
-                )
+                name, description, genome,
+                hap1, hap2, genelist,
+                fhap1, fhap2, mhap1, mhap2,
+                gene_groups
+            )
 
             Log.d("ProblemTypeInitializer", "12: problem_type initialized. Returning")
 

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/individual_card"
+    android:layout_gravity="center"
+    android:clickable="false"
+    android:focusable="false"
+    android:foreground="@android:color/transparent"
+    card_view:cardBackgroundColor="@android:color/transparent"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    card_view:cardCornerRadius="0dp"
+    card_view:cardElevation="0dp"
+    card_view:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/frog_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:text="Frog name"
+                android:layout_marginLeft="7dp"
+                android:layout_marginTop="7dp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <!--TextView
+                android:id="@+id/titulo"
+                android:layout_marginRight="7dp"
+                android:layout_marginTop="7dp"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:gravity="right"
+                android:text="Frog ID"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:textAppearance="?android:attr/textAppearanceLarge" /-->
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/frog_icono"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:elevation="0dp"
+            android:padding="0dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_bodycolor_red" />
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
